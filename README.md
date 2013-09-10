@@ -36,13 +36,18 @@ Now, initiate the generator:
 $ yo go-static
 ```
 
-Finally, add a page or post:
+Next, add a page or post:
 
 ```
 $ yo go-static:post "New Blog Post"
 $ yo go-static:page "About"
 ```
 
+Finally, build and serve it with Grunt!
+
+```
+$ grunt server
+```
 
 ## License
 
