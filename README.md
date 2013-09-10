@@ -6,48 +6,62 @@ A static site generator for [Yeoman](http://yeoman.io).
 
 ## Getting Started
 
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+Go Static! depends on Yeoman, so make sure you have it installed:
 
 ```
 $ npm install -g yo
 ```
 
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-go-static from npm, run:
+Once you have Yeoman installed, you can install Go-Static! with NPM:
 
 ```
 $ npm install -g generator-go-static
 ```
 
-Now, initiate the generator:
+With Go-Static! installed, you can now initialize your working directory:
 
 ```
+$ mkdir my-blog && cd $_
 $ yo go-static
 ```
 
-Next, add a page or post:
+## Creating your first post
+
+If everything intialized correctly, you can now use Go-Static! to create your posts for you.
 
 ```
-$ yo go-static:post "New Blog Post"
-$ yo go-static:page "About"
+$ yo go-static:post
 ```
 
-Finally, build and serve it with Grunt!
+You will be presented with some questions regarding the post, such as title, snippet, tags, etc. If everything went ok,
+it will generate a report of exactly what was generated for you.
+
+You don't have to write just posts, you can craete pages also:
+
+```
+$ yo go-static:page
+```
+
+## The build step
+
+Once your pages and posts are created, it's time to generate the output and serve it up.
 
 ```
 $ grunt server
 ```
+
+Running the <code>server</code> Grunt task will <code>build</code> and <code>watch</code> your code for changes.
+If you prefer to just run the build step, just run:
+
+```
+$ grunt build
+```
+
+That's it!
+
+## Contributing
+
+I'm currently looking for contributors, so if you'd like to help out in any way.
 
 ## License
 
