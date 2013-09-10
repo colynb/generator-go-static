@@ -1,97 +1,132 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Generator-go-static : A static site generator for Yeoman" />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
-    <title>Generator-go-static</title>
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Go-Static! by colynb</title>
   </head>
 
   <body>
+    <a id="forkme_banner" href="https://github.com/colynb/generator-go-static">View on GitHub</a>
+    <div class="shell">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/colynb/generator-go-static">View on GitHub</a>
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Go-Static!</h1>
+            <h2>A static site generator for Yeoman</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
 
-          <h1 id="project_title">Generator-go-static</h1>
-          <h2 id="project_tagline">A static site generator for Yeoman</h2>
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/colynb/generator-go-static/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/colynb/generator-go-static/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/colynb/generator-go-static/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/colynb/generator-go-static/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
         <h1>
-<a name="generator-go-static" class="anchor" href="#generator-go-static"><span class="octicon octicon-link"></span></a>generator-go-static</h1>
-
-<p>(WORK IN PROGRESS)</p>
+<a name="go-static" class="anchor" href="#go-static"><span class="octicon octicon-link"></span></a>Go-Static!</h1>
 
 <p>A static site generator for <a href="http://yeoman.io">Yeoman</a>. </p>
 
-<h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
-
 <h3>
-<a name="what-is-yeoman" class="anchor" href="#what-is-yeoman"><span class="octicon octicon-link"></span></a>What is Yeoman?</h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h3>
 
-<p>Trick question. It's not a thing. It's this guy:</p>
-
-<p><img src="http://i.imgur.com/JHaAlBJ.png" alt=""></p>
-
-<p>Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.</p>
-
-<p>Not every new computer comes with a Yeoman pre-installed. He lives in the <a href="https://npmjs.org">npm</a> package repository. You only have to ask for him once, then he packs up and moves into your hard drive. <em>Make sure you clean up, he likes new and shiny things.</em></p>
+<p>Go Static! depends on Yeoman, so make sure you have it installed:</p>
 
 <pre><code>$ npm install -g yo
 </code></pre>
 
-<h3>
-<a name="yeoman-generators" class="anchor" href="#yeoman-generators"><span class="octicon octicon-link"></span></a>Yeoman Generators</h3>
-
-<p>Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.</p>
-
-<p>To install generator-go-static from npm, run:</p>
+<p>Once you have Yeoman installed, you can install Go-Static! with NPM:</p>
 
 <pre><code>$ npm install -g generator-go-static
 </code></pre>
 
-<p>Now, initiate the generator:</p>
+<p>With Go-Static! installed, you can now initialize your working directory:</p>
 
-<pre><code>$ yo go-static
+<pre><code>$ mkdir my-blog &amp;&amp; cd $_
+$ yo go-static
 </code></pre>
 
-<p>Finally, add a page or post:</p>
+<h3>
+<a name="creating-your-first-post" class="anchor" href="#creating-your-first-post"><span class="octicon octicon-link"></span></a>Creating your first post</h3>
 
-<pre><code>$ yo go-static:post "New Blog Post"
-$ yo go-static:page "About"
+<p>If everything intialized correctly, you can now use Go-Static! to create your posts for you.</p>
+
+<pre><code>$ yo go-static:post
 </code></pre>
 
-<h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<p>You will be presented with some questions regarding the post, such as title, snippet, tags, etc. If everything went ok,
+it will generate a report of exactly what was generated for you.</p>
+
+<p>You don't have to write just posts, you can craete pages also:</p>
+
+<pre><code>$ yo go-static:page
+</code></pre>
+
+<h3>
+<a name="the-build-step" class="anchor" href="#the-build-step"><span class="octicon octicon-link"></span></a>The build step</h3>
+
+<p>Once your pages and posts are created, it's time to generate the output and serve it up.</p>
+
+<pre><code>$ grunt server
+</code></pre>
+
+<p>Running the <code>server</code> Grunt task will <code>build</code> and <code>watch</code> your code for changes.
+If you prefer to just run the build step, just run:</p>
+
+<pre><code>$ grunt build
+</code></pre>
+
+<p>That's it!</p>
+
+<h3>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h3>
+
+<p>I'm currently looking for contributors, so let me know if you'd like to help out in any way.</p>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
 
 <p><a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a></p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Generator-go-static maintained by <a href="https://github.com/colynb">colynb</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/colynb">colynb</a> can be found on <a href="https://github.com/colynb/generator-go-static">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
       </footer>
+
     </div>
 
     
-
   </body>
 </html>
