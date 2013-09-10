@@ -1,10 +1,8 @@
-# generator-go-static
-
-(WORK IN PROGRESS)
+# Go-Static!
 
 A static site generator for [Yeoman](http://yeoman.io). 
 
-## Getting Started
+### Getting Started
 
 Go Static! depends on Yeoman, so make sure you have it installed:
 
@@ -25,7 +23,7 @@ $ mkdir my-blog && cd $_
 $ yo go-static
 ```
 
-## Creating your first post
+### Creating your first post
 
 If everything intialized correctly, you can now use Go-Static! to create your posts for you.
 
@@ -42,7 +40,7 @@ You don't have to write just posts, you can craete pages also:
 $ yo go-static:page
 ```
 
-## The build step
+### The build step
 
 Once your pages and posts are created, it's time to generate the output and serve it up.
 
@@ -59,10 +57,10 @@ $ grunt build
 
 That's it!
 
-## Contributing
+### Contributing
 
-I'm currently looking for contributors, so if you'd like to help out in any way.
+I'm currently looking for contributors, so let me know if you'd like to help out in any way.
 
-## License
+### License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
