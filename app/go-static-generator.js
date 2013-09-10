@@ -16,6 +16,10 @@ var GoStatic = module.exports = {
 	editor: {
 		indentStyle: 'tab'
 	},
+	format: {
+		postDatePath: 'YYYY/MM/DD',
+		date: null, // <--- default formatting for moment.js
+	},
 	banner: 
 '\n     _-----_' +
 '\n    |       |' +
@@ -34,6 +38,7 @@ var GoStatic = module.exports = {
 		return [
 			this.paths.source + '/docs/posts',
 			this.paths.source + '/layouts',
+			this.paths.source + '/partials',
 			this.paths.source + '/assets/css/',
 			this.paths.source + '/assets/js/',
 			this.paths.source + '/assets/img/'
@@ -42,7 +47,10 @@ var GoStatic = module.exports = {
 	initCopy: function (){
 		return [
 			{src: 'Gruntfile.js', dst: 'Gruntfile.js'},
+			{src: 'header.html', dst: this.paths.source + '/partials/header.html'},
+			{src: 'footer.html', dst: this.paths.source + '/partials/footer.html'},
 			{src: 'layouts/base.html', dst: this.paths.source + '/layouts/base.html'},
+			{src: 'layouts/home.html', dst: this.paths.source + '/layouts/home.html'},
 			{src: 'layouts/post.html', dst: this.paths.source + '/layouts/post.html'},
 			{src: 'layouts/page.html', dst: this.paths.source + '/layouts/page.html'},
 		]

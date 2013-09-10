@@ -66,6 +66,7 @@ module.exports = function (grunt) {
 			},
 			livereload: {
 				files: [
+					goStatic.paths.source + '/layouts/**/*.html',
 					goStatic.paths.source + '/docs/**/*.md'
 				],
 				tasks: ['build']
@@ -94,19 +95,18 @@ module.exports = function (grunt) {
 			}
 		}
 	});
- 
+
 	grunt.registerTask('server', ['connect:livereload', 'build', 'open', 'watch']);
 	grunt.registerTask('build', 'Build your blog!', function () {
 		
 		docLibrary.reset();
-
-		grunt.file.delete(goStatic.paths.output);
 
 		grunt.file.recurse(goStatic.paths.source + '/docs', function (path, root, sub, fileName) {
 			var contents = grunt.file.read(path);
 			var doc = goStatic.getDocData(contents);
 			doc.src = path;
 			doc.filename = fileName;
+			doc.renderPipe = fileName.split('.').slice(1).reverse();
 			docLibrary.add(doc);
 		});
 
@@ -114,6 +114,22 @@ module.exports = function (grunt) {
 		vars.site = goStatic.site;
 		vars.posts = docLibrary.getPosts();
 		vars.pages = docLibrary.getPages();
+
+		swig.setFilter('gravatar', function(input,i){
+			return goStatic.generateGravatar(input);
+		});
+		
+		docLibrary.each(function(doc){
+			doc.get('renderPipe').forEach(function(mode){
+				if (mode === 'html') {
+					var tpl = swig.compile(doc.get('content'));
+					doc.set('content', tpl(vars));
+				}
+				if (mode === 'md') {
+					doc.set('content', marked(doc.get('content')));
+				}
+			});
+		});
 
 		console.log(chalk.red('\nBuilding documents... '));
 		docLibrary.each(function(doc){
