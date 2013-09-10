@@ -53,6 +53,8 @@ var GoStatic = module.exports = {
 			{src: 'layouts/home.html', dst: this.paths.source + '/layouts/home.html'},
 			{src: 'layouts/post.html', dst: this.paths.source + '/layouts/post.html'},
 			{src: 'layouts/page.html', dst: this.paths.source + '/layouts/page.html'},
+			{src: 'bootstrap.min.css', dst: this.paths.source + '/assets/css/bootstrap.min.css'},
+			{src: 'solarize_dark.css', dst: this.paths.source + '/assets/css/solarize_dark.css'},
 		]
 	},
 	initTpl: function (){

@@ -57,8 +57,7 @@ var GoStaticGenerator = module.exports = function GoStaticGenerator(args, option
 		var siteAuthor = (gitConfig) ? gitConfig.user.name : '';
 		var siteAuthorEmail = (gitConfig) ? gitConfig.user.email : '';
 
-		var prefix = today.format(GoStatic.format.postDatePath);
-		filename = prefix + '/welcome.md';
+		filename = 'welcome.md';
 		var tags = ['welcome','awesome','blog','go-static'];
 
 		var meta = {
