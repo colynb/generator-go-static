@@ -1,35 +1,89 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
-var GoStaticMain = require('../app/go-static-generator');
+var GoStatic = require('../app/go-static-generator');
 var goStatic = require(process.cwd() + '/go-static');
 var moment = require('moment');
+var chalk = require('chalk');
 
 var PostGenerator = module.exports = function PostGenerator(args, options, config) {
-  // By calling `NamedBase` here, we get the argument to the subgenerator call
-  // as `this.name`.
-  yeoman.generators.NamedBase.apply(this, arguments);
 
-  console.log('Generating new post... "' + this.name + '".');
+	this.on('end', function () {
+
+		
+
+	});
+	yeoman.generators.Base.apply(this, arguments);
+
 };
 
 util.inherits(PostGenerator, yeoman.generators.NamedBase);
 
+PostGenerator.prototype.askFor = function askFor() {
+	var cb = this.async();
+
+	var gitConfig = GoStatic.getGitConfig();
+	var siteAuthor = (gitConfig) ? gitConfig.user.name : '';
+	var siteAuthorEmail = (gitConfig) ? gitConfig.user.email : '';
+
+	var prompts = [
+		{
+			name: 'postTitle',
+			message: 'Post title?'
+		},
+		{
+			name: 'postSnippet',
+			message: 'Snippet?'
+		},
+		{
+			name: 'postTags',
+			message: 'Tags?'
+		},
+		{
+			name: 'postAuthor',
+			message: 'Author?',
+			default: siteAuthor
+		},
+		{
+			name: 'postAuthorEmail',
+			message: 'Author Email?',
+			default: siteAuthorEmail
+		}
+	];
+
+	this.prompt(prompts, function (props) {
+		this.props = props;
+
+		cb();
+	}.bind(this));
+};
+
 PostGenerator.prototype.files = function files() {
+
 	var today = moment();
 	var prefix = today.format(goStatic.format.postDatePath);
-	var filename = prefix + '/' + this._.slugify(this.name) + '.md';
+	var filename = prefix + '/' + this._.slugify(this.props.postTitle) + '.md';
+	var tags = this.props.postTags.split(/[\s,]+/);
 
 	var meta = {
 		layout: 'post',
-    	title: this.name,
+    	title: this.props.postTitle,
+    	snippet: this.props.postSnippet,
+    	tags: tags,
 		path: '/posts/' + filename.replace(/\.md$/, '.html'),
 		type: 'post',
 		created: today.format(goStatic.format.date),
-		author: goStatic.site.author
+		author: { name: this.props.postAuthor, email: this.props.postAuthorEmail }
 	};
 
-	var content = GoStaticMain.generateDocMeta(meta);
-	content += '# ' + this.name;
+	
+	var content = GoStatic.generateDocMeta(meta);
 	this.write(goStatic.paths.source + '/docs/posts/' + filename, content);
+
+	console.log(chalk.red('\nNew post generated!'));
+	Object.keys(meta).forEach(function(key){
+		console.log(chalk.green('   ' + key + ': ') + JSON.stringify(meta[key]));
+	});
+	console.log('');
+
 };

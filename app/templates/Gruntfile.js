@@ -2,6 +2,7 @@
 var moment = require('moment');
 var marked = require('marked');
 var swig = require('swig');
+var chalk = require('chalk');
  
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
@@ -96,7 +97,11 @@ module.exports = function (grunt) {
  
 	grunt.registerTask('server', ['connect:livereload', 'build', 'open', 'watch']);
 	grunt.registerTask('build', 'Build your blog!', function () {
+		
 		docLibrary.reset();
+
+		grunt.file.delete(goStatic.paths.output);
+
 		grunt.file.recurse(goStatic.paths.source + '/docs', function (path, root, sub, fileName) {
 			var contents = grunt.file.read(path);
 			var doc = goStatic.getDocData(contents);
@@ -105,25 +110,27 @@ module.exports = function (grunt) {
 			docLibrary.add(doc);
 		});
 
-		var posts = docLibrary.getPosts();
-		var pages = docLibrary.getPages();
+		var vars = {};
+		vars.site = goStatic.site;
+		vars.posts = docLibrary.getPosts();
+		vars.pages = docLibrary.getPages();
 
+		console.log(chalk.red('\nBuilding documents... '));
 		docLibrary.each(function(doc){
 			var content = goStatic.generateSwigTemplate(doc);
 			grunt.file.write(goStatic.paths.tmp + '/' + doc.get('filename'), content);
 			var tpl = swig.compileFile(goStatic.paths.tmp + '/' + doc.get('filename'));
-			var vars = doc.attributes;
-			vars.site = goStatic.site;
-			vars.posts = posts;
-			vars.pages = pages;
+			vars.doc = doc.attributes;
 			content = tpl(vars);
-			console.log(doc.attributes);
 			grunt.file.write(goStatic.paths.output + doc.get('path'), content);
-			grunt.log.ok('Created ' + goStatic.paths.output + doc.get('path'));
+			console.log(chalk.green('  Created ') + goStatic.paths.output + doc.get('path'));
 		});
+
+		console.log(chalk.red('\nBuilding assets... '));
 		grunt.file.recurse(goStatic.paths.source + '/assets/', function(path, root, sub, fileName) {
 			var dest = goStatic.paths.output + '/' + path.split('/').slice(2).join('/');
 			grunt.file.copy(path, dest);
+			console.log(chalk.green('  Created ') + dest);
 		});
 	});
  
