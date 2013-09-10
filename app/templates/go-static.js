@@ -1,11 +1,7 @@
-var fs = require('fs'),
-	YAML = require('yamljs'),
-	moment = require('moment'),
-	iniparser = require('iniparser');
-
-function pad(n){
-	return n<10 ? '0'+n : n
-}
+var YAML = require('yamljs');
+var swig = require('swig');
+var marked = require('marked');
+var fs = require('fs');
 
 module.exports = {
 	site: {
@@ -26,11 +22,19 @@ module.exports = {
 		date: null, // <--- default formatting for moment.js
 	},
 	validExts : ['md'],
-	getPostPrefix:
-	generateDocMeta: function(meta) {
-		var content = '----\n';
-		content += YAML.stringify(meta, 4);
-		content += '----\n\n'
+	getDocData: function(contents) {
+		var prep = contents.split('----');
+		var data = YAML.parse(prep[1]);
+		data.content = prep[2];
+		return data;
+	},
+	generateSwigTemplate: function(doc) {
+		var layout = '../' + this.paths.source + '/layouts/' + doc.get('layout') + '.html';
+		var content = '{% extends \''+layout+'\' %}';
+		content += '\n\n' + '{% block title %}{{ title }} | {% parent %}{% endblock %}';
+		content += '\n\n' + '{% block '+doc.get('type')+' %}';
+		content += '\n\n\t' + marked(doc.get('content'));
+		content += '\n\n' + '{% endblock %}';
 		return content;
 	}
 }

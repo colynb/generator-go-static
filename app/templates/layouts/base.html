@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{% block title %} {{ site.title }} {% endblock %}</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		{% block head %}
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<style>
+
+			body {
+			    padding-top: 50px;
+			}
+
+			.starter-template {
+			    padding: 40px 15px;
+			    text-align: center;
+			}
+		</style>
+		{% endblock %}
+	</head>
+	<body>
+
+
+		{% block header %}
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">{{ site.title }}</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+					{% for page in pages %}
+					  <li><a href="{{ page.attributes.path }}">{{ page.attributes.title }}</a></li>
+					{% endfor %}
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+		{% endblock %}
+
+		{% block content %}{% endblock %}
+
+	</body>
+</html>

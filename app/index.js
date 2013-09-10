@@ -21,7 +21,7 @@ GoStaticGenerator.prototype.askFor = function askFor() {
 	var cb = this.async();
 
 	// have Yeoman greet the user.
-	console.log(this.yeoman);
+	console.log(GoStatic.banner);
 
 	var gitConfig = GoStatic.getGitConfig();
 	var siteAuthor = (gitConfig) ? gitConfig.user.name : '';
@@ -30,7 +30,8 @@ GoStaticGenerator.prototype.askFor = function askFor() {
 	var prompts = [
 		{
 			name: 'siteName',
-			message: 'What is the name of your website?'
+			message: 'What is the name of your website?',
+			default: 'Front-End Development Blog'
 		},
 		{
 			name: 'siteDescription',
@@ -64,14 +65,17 @@ GoStaticGenerator.prototype.app = function app() {
 
 	var yo = this;
 
-	GoStatic.initPaths().forEach(function(path){
+	GoStatic.initDirs().forEach(function(path){
 		yo.mkdir(path);
 	});
 
-	this.template('Gruntfile.js', 'Gruntfile.js');
-	this.template('go-static.js', 'go-static.js');
+	GoStatic.initCopy().forEach(function(path){
+		yo.copy(path.src, path.dst);
+	});
 
-	this.template('_package.json', 'package.json');
+	GoStatic.initTpl().forEach(function(path){
+		yo.template(path.src, path.dst);
+	});
 };
 
 GoStaticGenerator.prototype.projectfiles = function projectfiles() {

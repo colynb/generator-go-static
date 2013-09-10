@@ -1,2 +1,2 @@
-<%= props.outPath %>/components
+<%= props.srcPath %>/assets/components
 node_modules
