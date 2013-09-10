@@ -1,0 +1,3 @@
+{
+  "directory": "<%= props.outPath %>/components"
+}

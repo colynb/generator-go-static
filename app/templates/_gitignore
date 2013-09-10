@@ -1,0 +1,2 @@
+<%= props.outPath %>/components
+node_modules
