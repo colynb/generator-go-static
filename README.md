@@ -1,6 +1,8 @@
 # generator-go-static
 
-A static site generator for [Yeoman](http://yeoman.io).
+(WORK IN PROGRESS)
+
+A static site generator for [Yeoman](http://yeoman.io). 
 
 ## Getting Started
 
