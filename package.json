@@ -1,16 +1,27 @@
 {
   "name": "generator-go-static",
   "version": "0.0.4",
-  "description": "A generator for Yeoman",
+  "description": "Go-Static! is a static site generator that employs the tools developers already know and love. Yeoman to scaffold out your project and Grunt to generate the output.",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "content management system",
+    "cms",
+    "static site generator",
+    "generator",
+    "grunt",
+    "grunt build",
+    "framework",
+    "build",
+    "builder",
+    "blog",
+    "scaffold"
   ],
-  "homepage": "https://github.com/colynb/generator-go-static",
+  "homepage": "http://colynb.com/generator-go-static",
   "bugs": "https://github.com/colynb/generator-go-static/issues",
   "author": {
-    "name": "",
-    "email": "",
-    "url": "https://github.com/colynb"
+    "name": "Colyn Brown",
+    "email": "colyn.brown@gmail.com",
+    "url": "http://colynb.com"
   },
   "main": "app/index.js",
   "repository": {
