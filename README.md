@@ -1,6 +1,6 @@
 # Go-Static!
 
-A static site generator for [Yeoman](http://yeoman.io). 
+Go-Static! is a static site generator that employs the tools developers already know and love. [Yeoman](http://yeoman.io) to scaffold out your project and [Grunt](http://gruntjs.com/) to generate the output.
 
 ### Getting Started
 
