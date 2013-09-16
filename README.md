@@ -8,6 +8,8 @@
 
 Go-Static! is a static site generator that employs the tools developers already know and love. [Yeoman](http://yeoman.io) to scaffold out your project and [Grunt](http://gruntjs.com/) to generate the output.
 
+[![NPM](https://nodei.co/npm/generator-go-static.png)](https://npmjs.org/package/generator-go-static)
+
 ### Getting Started
 
 Go Static! depends on Yeoman, so make sure you have it installed:
