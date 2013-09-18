@@ -7,14 +7,8 @@ var moment = require('moment');
 var chalk = require('chalk');
 
 var PostGenerator = module.exports = function PostGenerator(args, options, config) {
-
-	this.on('end', function () {
-
-		
-
-	});
+	this.on('end', function () {});
 	yeoman.generators.Base.apply(this, arguments);
-
 };
 
 util.inherits(PostGenerator, yeoman.generators.NamedBase);
@@ -67,9 +61,9 @@ PostGenerator.prototype.files = function files() {
 
 	var meta = {
 		layout: 'post',
-    	title: this.props.postTitle,
-    	snippet: this.props.postSnippet,
-    	tags: tags,
+        title: this.props.postTitle,
+        snippet: this.props.postSnippet,
+        tags: tags,
 		path: '/posts/' + filename.replace(/\.md$/, '.html'),
 		type: 'post',
 		created: today.format(goStatic.format.date),
