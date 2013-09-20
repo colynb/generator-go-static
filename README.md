@@ -42,7 +42,7 @@ $ yo go-static:post
 You will be presented with some questions regarding the post, such as title, snippet, tags, etc. If everything went ok,
 it will generate a report of exactly what was generated for you.
 
-You don't have to write just posts, you can craete pages also:
+You don't have to write just posts, you can create pages also:
 
 ```
 $ yo go-static:page
