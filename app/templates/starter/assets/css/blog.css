@@ -6,11 +6,12 @@
 
 a {
     text-decoration: none;
-    color: #333;
+    color: #428bca;
 }
 a:hover,
 a:focus {
     text-decoration: underline;
+    color: #2a6496;
 }
 
 /* LAYOUT CSS */
@@ -25,7 +26,7 @@ a:focus {
     bottom: 0;
     width: 25%;
     margin-left: -25%;
-    background: #ccc;
+    background: #dcddab;
     color: #fff;
 }
 
@@ -107,25 +108,13 @@ a:focus {
     margin: 0;
 }
 
-.post-category {
+.post-tag {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
     background: #999;
     font-size: 80%;
 }
-    .post-category-design {
-        background: #5aba59;
-    }
-    .post-category-pure {
-        background: #4d85d1;
-    }
-    .post-category-yui {
-        background: #8156a7;
-    }
-    .post-category-js {
-        background: #df2d4f;
-    }
 
 .post-images {
     margin: 1em 0;
@@ -155,6 +144,8 @@ a:focus {
  */
 .social-menu-horizontal ul {
 	list-style: none;
+    padding: 0px;
+    float: right;
 }
 
 .social-menu-horizontal ul li {
@@ -176,6 +167,21 @@ a:focus {
 }
 
 
+.copyright {
+    border-top: solid 1px #eee;
+    padding: 10px 0 0 0;
+    margin: 25px 0 0 0;
+    clear: both;
+    color: #666;
+    text-align: left;
+    font-size: 12px;
+}
+
+.copyright a {
+    color: #666;
+    font-size: inherit;
+}
+
 @media (max-width: 767px) {
     .sidebar {
         width: 100%;
@@ -192,6 +198,10 @@ a:focus {
 
     #layout {
         padding: 0;
+    }
+
+    .social-menu-horizontal ul {
+        float: none;
     }
 }
 

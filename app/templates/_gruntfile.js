@@ -31,7 +31,13 @@ var DocCollection = Backbone.Collection.extend({
 		this.sortAttribute = 'created';
 		this.sortDirection = -1;
 		this.sort();
-		return this.where({type:'post'});
+		return this.where({type:'post', isPinned: false});
+	},
+	getPinnedPosts: function () {
+		this.sortAttribute = 'created';
+		this.sortDirection = -1;
+		this.sort();
+		return this.where({isPinned:true});
 	},
 	getPages: function () {
 		this.sortAttribute = 'created';
@@ -105,6 +111,9 @@ module.exports = function (grunt) {
 		grunt.file.recurse(goStatic.paths.source + '/docs', function (path, root, sub, fileName) {
 			var contents = grunt.file.read(path);
 			var doc = goStatic.getFrontMatter(contents);
+			if (!doc.isPinned) {
+				doc.isPinned = false;
+			}
 			doc.src = path;
 			doc.filename = fileName;
 			doc.renderPipe = fileName.split('.').slice(1).reverse();
@@ -114,6 +123,7 @@ module.exports = function (grunt) {
 		var vars = {};
 		vars.site = goStatic.site;
 		vars.posts = docLibrary.getPosts();
+		vars.pinnedposts = docLibrary.getPinnedPosts();
 		vars.pages = docLibrary.getPages();
 
 		swig.setFilter('gravatar', function(input,i){

@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Welcome to Go-Static!
-snippet: My introductory post
+title: Introducing Go-Static!
+snippet: Go-Static! is a static site generator that employs the tools developers already know and love. 
 author: { name: Colyn Brown, email: colyn.brown@gmail.com }
 path: /posts/welcome.html
 type: post
+isPinned: true
 tags: ['blog', 'post', 'welcome', 'go-static']
 created: '2013-09-20T19:28:35-07:00'
 ---
