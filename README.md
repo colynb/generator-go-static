@@ -65,6 +65,12 @@ $ grunt build
 
 That's it!
 
+### Full Documentation
+
+Documentation isn't completed as this is a work in progress, but there are a couple pages to help you understand some of the basics.
+
+[Go-Static! Wiki](https://github.com/colynb/generator-go-static/wiki/_pages)
+
 ### Contributing
 
 Go-Static! has just been born and still needs work to be awesome. If you'd like to help make it awesome, let me know!
