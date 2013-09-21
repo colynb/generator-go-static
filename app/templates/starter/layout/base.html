@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+
+  <!-- Site Properities -->
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}" />
+  <meta name="keywords" content="{% block keywords %}{{ site.keywords }}{% endblock %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% block head %}
+  	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="/css/blog.css">
+
+    <script src="http://use.typekit.net/gis6vng.js"></script>
+    <script>
+        try { Typekit.load(); } catch (e) {}
+    </script>
+  {% endblock %}
+  
+
+</head>
+
+<body>
+
+  <!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
+
+
+<div class="pure-g-r" id="layout">
+  <div class="sidebar pure-u">
+    <header class="header">
+      {% block header %}{% endblock %}
+      {% block footer %}{% endblock %}
+    </header>
+  </div>
+
+  <div class="pure-u-1">
+      <div class="content">
+        {% block body %}{% endblock %}
+      </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

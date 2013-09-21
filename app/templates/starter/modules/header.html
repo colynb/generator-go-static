@@ -1,0 +1,31 @@
+<style>
+  .my-awesome-mugshot {
+    background: url({{ site.author.email|gravatar }}?s=120);
+    width: 120px;
+    height: 120px;
+    margin: 0 0 0 auto;
+    border-radius: 20px;
+  }
+  @media (max-width: 767px) {
+    .my-awesome-mugshot {
+      margin: 0 auto;
+    }
+}
+</style>
+
+
+<hgroup>
+    <div class="my-awesome-mugshot"></div>
+    <h1 class="brand-title">{{ site.title }}</h1>
+    <h2 class="brand-tagline">{{ site.description }}</h2>
+</hgroup>
+
+<nav class="nav">
+    <ul class="nav-list">
+        {% for page in pages %}
+        <li class="nav-item">
+            <a class="pure-button" href="{{ page.get('path') }}">{{ page.get('title') }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,25 @@
+---
+layout: home
+title: Recent Posts
+path: /index.html
+type: page
+created: '2013-09-20T19:28:35-07:00'
+---
+
+
+{% for post in posts %}
+%section.post
+  %header.post-header
+    %h2.post-title
+      %a{href: "{{ post.get('path') }}"} {{ post.get('title') }}
+    %p.post-meta
+      By 
+      %a.post-author(href="#")>{{ post.get('author')['name'] }}
+      under 
+      {% for tag in post.get('tags') %}
+        %a.post-category.post-category-design(href="#")>{{tag}}
+      {% endfor %}
+    .post-description
+      %p
+        {{ post.get('snippet') }}
+{% endfor %}

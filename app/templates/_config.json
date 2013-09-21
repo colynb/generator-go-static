@@ -1,0 +1,19 @@
+{
+  "site": {
+    "title": "<%= props.siteName %>",
+    "description": "<%= props.siteDescription %>",
+    "author": {
+      "name": "<%= props.siteAuthor %>",
+      "email": "<%= props.siteAuthorEmail %>"
+      }
+  },
+  "paths": {
+    "source" : "<%= props.srcPath %>",
+    "output" : "<%= props.outPath %>",
+    "tmp" : "<%= props.tmpPath %>",
+  },
+  "format": {
+    "postDatePath": "YYYY/MM/DD",
+    "date": null, // <--- default formatting for moment.js
+  }
+}

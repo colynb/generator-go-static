@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	{% include "../modules/header.html" %}
+{% endblock %}
+
+{% block footer %}
+	{% include "../modules/footer.html" %}
+{% endblock %}
+
+{% block body %}
+	<h2 class="post-title">{{ doc.get('title') }}</h2>
+	<p class="post-meta">
+            By <a href="#" class="post-author">{{ doc.get('author')['name'] }}</a> under
+
+            {% for tag in doc.get('tags') %}
+				<a class="post-category post-category-design" href="#">{{ tag }}</a>
+			{% endfor %}
+    </p>
+	{% block content %}{% endblock %}
+{% endblock %}

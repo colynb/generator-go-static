@@ -1,17 +1,14 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
-var GoStatic = require('../app/go-static-generator');
-var goStatic = require(process.cwd() + '/go-static');
+var GoStatic = require('../lib');
+var goStaticConfig = require( process.cwd() + '/go-static' );
 var moment = require('moment');
 var chalk = require('chalk');
 
 var PostGenerator = module.exports = function PostGenerator(args, options, config) {
 
 	this.on('end', function () {
-
-		
-
 	});
 	yeoman.generators.Base.apply(this, arguments);
 
@@ -61,7 +58,7 @@ PostGenerator.prototype.askFor = function askFor() {
 PostGenerator.prototype.files = function files() {
 
 	var today = moment();
-	var prefix = today.format(goStatic.format.postDatePath);
+	var prefix = today.format(goStaticConfig.format.postDatePath);
 	var filename = prefix + '/' + this._.slugify(this.props.postTitle) + '.md';
 	var tags = this.props.postTags.split(/[\s,]+/);
 
@@ -72,13 +69,13 @@ PostGenerator.prototype.files = function files() {
     	tags: tags,
 		path: '/posts/' + filename.replace(/\.md$/, '.html'),
 		type: 'post',
-		created: today.format(goStatic.format.date),
+		created: today.format(goStaticConfig.format.date),
 		author: { name: this.props.postAuthor, email: this.props.postAuthorEmail }
 	};
 
 	
-	var content = GoStatic.generateDocMeta(meta);
-	this.write(goStatic.paths.source + '/docs/posts/' + filename, content);
+	var content = GoStatic.generateFrontMatter(meta);
+	this.write(goStaticConfig.paths.source + '/docs/posts/' + filename, content);
 
 	console.log(chalk.red('\nNew post generated!'));
 	Object.keys(meta).forEach(function(key){

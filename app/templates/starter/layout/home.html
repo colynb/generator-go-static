@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block header %}
-	{% include "../partials/header.html" %}
+	{% include "../modules/header.html" %}
 {% endblock %}
 
 {% block footer %}
-	{% include "../partials/footer.html" %}
+	{% include "../modules/footer.html" %}
 {% endblock %}
 
 {% block body %}
+<div class="container">
 <article class="post panel-body">
-	<h1 class="entry-title">{{ doc.title }}</h1>
 	{% block content %}{% endblock %}
 </article>
+</div>
 {% endblock %}

@@ -1,17 +1,14 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
-var GoStatic = require('../app/go-static-generator');
-var goStatic = require(process.cwd() + '/go-static');
+var GoStatic = require('../lib');
+var goStaticConfig = require( process.cwd() + '/go-static' );
 var moment = require('moment');
 var chalk = require('chalk');
 
 var PageGenerator = module.exports = function PageGenerator(args, options, config) {
 
   this.on('end', function () {
-
-    
-
   });
   yeoman.generators.Base.apply(this, arguments);
 
@@ -49,12 +46,12 @@ PageGenerator.prototype.files = function files() {
     title: this.props.pageTitle,
     path: '/' + filename.replace(/\.md$/, '.html'),
     type: 'page',
-    created: today.format(goStatic.format.date),
+    created: today.format(goStaticConfig.format.date),
   };
 
   
-  var content = GoStatic.generateDocMeta(meta);
-  this.write(goStatic.paths.source + '/docs/' + filename, content);
+  var content = GoStatic.generateFrontMatter(meta);
+  this.write(goStaticConfig.paths.source + '/docs/' + filename, content);
 
   console.log(chalk.red('\nNew page generated!'));
   Object.keys(meta).forEach(function(key){

@@ -3,6 +3,7 @@ var moment = require('moment');
 var marked = require('marked');
 var swig = require('swig');
 var chalk = require('chalk');
+var Haml = require("haml");
  
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
@@ -10,7 +11,7 @@ var mountFolder = function (connect, dir) {
 	return connect.static(require('path').resolve(dir));
 };
 
-var goStatic = require('./go-static');
+var goStatic = require('./go-static.js');
 
 var Backbone = require('backbone');
 var _ = require('lodash');
@@ -66,7 +67,7 @@ module.exports = function (grunt) {
 			},
 			livereload: {
 				files: [
-					goStatic.paths.source + '/layouts/**/*.html',
+					goStatic.paths.source + '/layout/**/*.html',
 					goStatic.paths.source + '/docs/**/*.md'
 				],
 				tasks: ['build']
@@ -91,7 +92,7 @@ module.exports = function (grunt) {
 		},
 		open: {
 			server: {
-				path: 'http://localhost:<%= connect.options.port %>'
+				path: 'http://localhost:<%%= connect.options.port %>'
 			}
 		}
 	});
@@ -103,7 +104,7 @@ module.exports = function (grunt) {
 
 		grunt.file.recurse(goStatic.paths.source + '/docs', function (path, root, sub, fileName) {
 			var contents = grunt.file.read(path);
-			var doc = goStatic.getDocData(contents);
+			var doc = goStatic.getFrontMatter(contents);
 			doc.src = path;
 			doc.filename = fileName;
 			doc.renderPipe = fileName.split('.').slice(1).reverse();
@@ -128,6 +129,9 @@ module.exports = function (grunt) {
 				if (mode === 'md') {
 					doc.set('content', marked(doc.get('content')));
 				}
+				if (mode === 'haml') {
+					doc.set('content', Haml.render(doc.get('content')));
+				}
 			});
 		});
 
@@ -136,7 +140,8 @@ module.exports = function (grunt) {
 			var content = goStatic.generateSwigTemplate(doc);
 			grunt.file.write(goStatic.paths.tmp + '/' + doc.get('filename'), content);
 			var tpl = swig.compileFile(goStatic.paths.tmp + '/' + doc.get('filename'));
-			vars.doc = doc.attributes;
+			vars.doc = doc;
+
 			content = tpl(vars);
 			grunt.file.write(goStatic.paths.output + doc.get('path'), content);
 			console.log(chalk.green('  Created ') + goStatic.paths.output + doc.get('path'));
