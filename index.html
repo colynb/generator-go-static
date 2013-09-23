@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title> | Go-Static!</title>
+
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      
+	<header>
+    <h1>Go-Static!</h1>
+    <p>Go-Static! is a static site generator that employs the tools developers already know and love. Yeoman to scaffold out your project and Grunt to generate the output.</p>
+
+    <p class="view">
+    
+    	<a href="/generator-go-static/index.html">Introducing Go-Static!</a><br>
+    
+    	<a href="/generator-go-static/create-new-post.html">How To Create a New Post</a><br>
+    
+    	<a href="/generator-go-static/create-new-page.html">How To Create a New Page</a><br>
+    
+    </p>
+
+    <p class="view"><a href="https://github.com/colynb/generator-go-static">View the Project on GitHub <small>colynb/generator-go-static</small></a></p>
+
+    <ul>
+      <li><a href="https://github.com/colynb/generator-go-static/zipball/master">Download <strong>ZIP File</strong></a></li>
+      <li><a href="https://github.com/colynb/generator-go-static/tarball/master">Download <strong>TAR Ball</strong></a></li>
+      <li><a href="https://github.com/colynb/generator-go-static">View On <strong>GitHub</strong></a></li>
+    </ul>
+
+    <p><a href="https://npmjs.org/package/generator-go-static"><img src="https://nodei.co/npm/generator-go-static.png" alt="NPM"></a></p>
+
+    
+  </header>
+
+      <section>
+      
+	<h1 class="entry-title">Introducing Go-Static!</h1>
+
+	
+
+	<!-- <pre><code>
+   ______              _____  __          __   _        __
+  / ____/____         / ___/ / /_ ____ _ / /_ (_)_____ / /
+ / / __ / __ \ ______ \__ \ / __// __ `// __// // ___// / 
+/ /_/ // /_/ //_____/___/ // /_ / /_/ // /_ / // /__ /_/  
+\____/ \____/       /____/ \__/ \__,_/ \__//_/ \___/(_) 
+</code></pre> -->
+
+<h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h3>
+
+<p>Go Static! depends on Yeoman, so make sure you have it installed:</p>
+
+<pre><code>$ npm install -g yo</code></pre>
+
+<p>Once you have Yeoman installed, you can install Go-Static! with NPM:</p>
+
+<pre><code>$ npm install -g generator-go-static</code></pre>
+
+<p>With Go-Static! installed, you can now initialize your working directory:</p>
+
+<pre><code>$ mkdir my-blog &amp;&amp; cd $_
+$ yo go-static
+</code></pre>
+
+<h3>
+<a name="creating-your-first-post" class="anchor" href="#creating-your-first-post"><span class="octicon octicon-link"></span></a>Creating your first post</h3>
+
+<p>If everything intialized correctly, you can now use Go-Static! to create your posts for you.</p>
+
+<pre><code>$ yo go-static:post
+</code></pre>
+
+<p>You will be presented with some questions regarding the post, such as title, snippet, tags, etc. If everything went ok,
+it will generate a report of exactly what was generated for you.</p>
+
+<p>You don't have to write just posts, you can create pages also:</p>
+
+<pre><code>$ yo go-static:page
+</code></pre>
+
+<h3>
+<a name="the-build-step" class="anchor" href="#the-build-step"><span class="octicon octicon-link"></span></a>The build step</h3>
+
+<p>Once your pages and posts are created, it's time to generate the output and serve it up.</p>
+
+<pre><code>$ grunt server
+</code></pre>
+
+<p>Running the <code>server</code> Grunt task will <code>build</code> and <code>watch</code> your code for changes.
+If you prefer to just run the build step, just run:</p>
+
+<pre><code>$ grunt build
+</code></pre>
+
+<p>That's it!</p>
+
+<h3>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h3>
+
+<p>Go-Static! has just been born and still needs work to be awesome. If you'd like to help make it awesome, let me know!</p>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a></p>
+
+
+
+      </section>
+      
+	<footer>
+<p>This project is maintained by <a href="https://github.com/colynb">colynb</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+</footer>
+
+    </div>
+    <script src="js/scale.fix.js"></script>
+    
+  </body>
+</html>

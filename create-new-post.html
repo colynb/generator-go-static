@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title> | Go-Static!</title>
+
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      
+	<header>
+    <h1>Go-Static!</h1>
+    <p>Go-Static! is a static site generator that employs the tools developers already know and love. Yeoman to scaffold out your project and Grunt to generate the output.</p>
+
+    <p class="view">
+    
+    	<a href="/generator-go-static/index.html">Introducing Go-Static!</a><br>
+    
+    	<a href="/generator-go-static/create-new-post.html">How To Create a New Post</a><br>
+    
+    	<a href="/generator-go-static/create-new-page.html">How To Create a New Page</a><br>
+    
+    </p>
+
+    <p class="view"><a href="https://github.com/colynb/generator-go-static">View the Project on GitHub <small>colynb/generator-go-static</small></a></p>
+
+    <ul>
+      <li><a href="https://github.com/colynb/generator-go-static/zipball/master">Download <strong>ZIP File</strong></a></li>
+      <li><a href="https://github.com/colynb/generator-go-static/tarball/master">Download <strong>TAR Ball</strong></a></li>
+      <li><a href="https://github.com/colynb/generator-go-static">View On <strong>GitHub</strong></a></li>
+    </ul>
+
+    <p><a href="https://npmjs.org/package/generator-go-static"><img src="https://nodei.co/npm/generator-go-static.png" alt="NPM"></a></p>
+
+    
+  </header>
+
+      <section>
+      
+	<h1 class="entry-title">How To Create a New Post</h1>
+
+	
+
+	<h3>Create a New Post</h3>
+<p>Creating posts is really simple using Go-Static! There are a couple ways to do it: either let the built in Yeoman generator scaffold out a new post for you, or you can just create a new file yourself in your favorite editor.</p>
+<h4>The Yeoman generator way</h4>
+<p>If you&#39;re using Go-Static! for the first time, this is a good way to go. Just run the generator for creating posts and follow the prompts.</p>
+<pre><code>$ yo go-static:post</code></pre>
+<p>The generator creates a new file (currently the default uses Markdown).</p>
+<p>The file will contain &quot;front matter&quot; section at the top. This is a way to store all the meta details about the page. You can read more about Go-Static! front matter in the documentation.</p>
+<p>For instance, the front matter for the post you&#39;re now reading is:</p>
+<pre><code>layout: post
+title: How To Create a New Post
+snippet: Go-Static! makes it really simple to create new posts. 
+author: { name: Colyn Brown, email: colyn.brown@gmail.com }
+path: /posts/create-new-post.html
+type: post
+isPinned: true
+tags: [&#39;blog&#39;, &#39;post&#39;, &#39;create&#39;, &#39;go-static&#39;]
+created: &#39;2013-09-20T19:28:35-07:00&#39;</code></pre>
+<p>The generator creates this for you. Add your content below that section.</p>
+<h4>Manually creating a post</h4>
+<p>As you can see, Go-Static isn&#39;t magic. It simply uses Yeoman to automate the creation of posts, a step that can easily be done manually by you. Just create a new file with some meta details about the post, then run your build.</p>
+
+
+
+
+      </section>
+      
+	<footer>
+<p>This project is maintained by <a href="https://github.com/colynb">colynb</a></p>
+<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+</footer>
+
+    </div>
+    <script src="js/scale.fix.js"></script>
+    
+  </body>
+</html>

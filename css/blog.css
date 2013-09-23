@@ -1,0 +1,191 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #428bca;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: #2a6496;
+}
+
+/* LAYOUT CSS */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #ccc;
+    color: #fff;
+    /*193406_10151005159841249_1334032107_o.jpg*/
+    /*616232_10150995644211249_1001700127_o.jpg*/
+    background: url(/img/193406_10151005159841249_1334032107_o.jpg) center -600px;
+}
+
+.content-col {
+    margin-left: 33.33%;
+}
+
+.header {
+    margin: 25% 2em 0;
+}
+
+.brand-title,
+.brand-tagline {
+    margin: 0;
+    margin-bottom: 15px;
+}
+.brand-title {
+    color: #333;
+    font-size: 42px;
+}
+.brand-tagline {
+    font-weight: normal;
+    line-height: 1.5;
+    color: #666;
+    font-size: 20px;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
+    background: transparent;
+    border: 3px solid #aaa;
+    color: #fff;
+    margin-top: 1em;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 3px solid #aaa;
+    color: #000;
+    text-decoration: none;
+}
+
+.content-subhead {
+    text-transform: uppercase;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    padding: 2em 3em 0;
+}
+
+.post {
+    padding-bottom: 2em;
+}
+.post-title {
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
+}
+.post-avatar {
+    border-radius: 50px;
+    float: right;
+    margin-left: 1em;
+}
+.post-description {
+    font-family: Georgia, "Cambria", serif;
+    color: #444;
+    line-height: 1.8em;
+}
+.post-meta {
+    color: #999;
+    font-size: 90%;
+    margin: 0;
+}
+
+.post-tag {
+    margin: 0 0.1em;
+    padding: 0.3em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+}
+
+.post-images {
+    margin: 1em 0;
+}
+.post-image-meta {
+    margin-top: -3.5em;
+    margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 1px 1px #333;
+}
+
+.footer {
+    text-align: center;
+    padding: 1em 0;
+}
+.footer a {
+    color: #ccc;
+    font-size: 80%;
+}
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
+    background: none;
+}
+
+/**
+ * Social Icons
+ */
+.social-menu-horizontal ul {
+	list-style: none;
+    padding: 0px;
+    float: right;
+}
+
+.social-menu-horizontal ul li {
+	display: inline-block;
+}
+
+.social-icons {
+	background: url(/img/social-icons.png);
+	width: 35px;
+	height: 35px;
+}
+
+.social-icons.twitter {
+	background-position: 0 0;
+}
+
+.social-icons.github {
+	background-position: -137px 0;
+}
+
+
+.copyright {
+    border-top: solid 1px #eee;
+    padding: 10px 0 0 0;
+    margin: 25px 0 0 0;
+    clear: both;
+    color: #666;
+    text-align: left;
+    font-size: 12px;
+}
+
+.copyright a {
+    color: #666;
+    font-size: inherit;
+}
+
+/* clear background class to override some purecss styles */
+.trans {
+    background: none !important;
+}
