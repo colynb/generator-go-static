@@ -7,16 +7,8 @@ var moment = require('moment');
 var chalk = require('chalk');
 
 var PostGenerator = module.exports = function PostGenerator(args, options, config) {
-<<<<<<< HEAD
-
-  this.on('end', function () {
-  });
-  yeoman.generators.Base.apply(this, arguments);
-
-=======
 	this.on('end', function () {});
 	yeoman.generators.Base.apply(this, arguments);
->>>>>>> 010f65facf4ddd59d93a7dc0229314a64eca6fb9
 };
 
 util.inherits(PostGenerator, yeoman.generators.NamedBase);
@@ -62,7 +54,6 @@ PostGenerator.prototype.askFor = function askFor() {
 
 PostGenerator.prototype.files = function files() {
 
-<<<<<<< HEAD
   var today = moment();
   var prefix = today.format(goStaticConfig.format.postDatePath);
   var filename = prefix + '/' + this._.slugify(this.props.postTitle) + '.md';
@@ -88,32 +79,6 @@ PostGenerator.prototype.files = function files() {
     console.log(chalk.green('   ' + key + ': ') + JSON.stringify(meta[key]));
   });
   console.log('');
-=======
-	var today = moment();
-	var prefix = today.format(goStatic.format.postDatePath);
-	var filename = prefix + '/' + this._.slugify(this.props.postTitle) + '.md';
-	var tags = this.props.postTags.split(/[\s,]+/);
 
-	var meta = {
-		layout: 'post',
-        title: this.props.postTitle,
-        snippet: this.props.postSnippet,
-        tags: tags,
-		path: '/posts/' + filename.replace(/\.md$/, '.html'),
-		type: 'post',
-		created: today.format(goStatic.format.date),
-		author: { name: this.props.postAuthor, email: this.props.postAuthorEmail }
-	};
-
-	
-	var content = GoStatic.generateDocMeta(meta);
-	this.write(goStatic.paths.source + '/docs/posts/' + filename, content);
-
-	console.log(chalk.red('\nNew post generated!'));
-	Object.keys(meta).forEach(function(key){
-		console.log(chalk.green('   ' + key + ': ') + JSON.stringify(meta[key]));
-	});
-	console.log('');
->>>>>>> 010f65facf4ddd59d93a7dc0229314a64eca6fb9
 
 };
