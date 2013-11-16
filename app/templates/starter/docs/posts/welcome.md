@@ -6,7 +6,7 @@ author: { name: Colyn Brown, email: colyn.brown@gmail.com }
 path: /posts/welcome.html
 type: post
 isPinned: true
-tags: ['blog', 'post', 'welcome', 'go-static']
+tags: ['blog', 'post', 'welcome', 'go-static', 'yeoman']
 created: '2013-09-20T19:28:35-07:00'
 ---
 

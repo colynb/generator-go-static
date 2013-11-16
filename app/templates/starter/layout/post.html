@@ -14,7 +14,7 @@
             By <a href="#" class="post-author">{{ doc.get('author')['name'] }}</a> under
 
             {% for tag in doc.get('tags') %}
-				<a class="post-category post-category-design" href="#">{{ tag }}</a>
+				<a class="post-category post-category-design" href="/tags/{{ tag }}.html">{{ tag }}</a>
 			{% endfor %}
     </p>
 	{% block content %}{% endblock %}

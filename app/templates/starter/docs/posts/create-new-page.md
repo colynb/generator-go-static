@@ -5,7 +5,7 @@ snippet: Go-Static! isn't just for blog posts, you can create pages too!
 author: { name: Colyn Brown, email: colyn.brown@gmail.com }
 path: /posts/create-new-page.html
 type: post
-tags: ['blog', 'page', 'create', 'go-static']
+tags: ['examples', 'page', 'create', 'go-static']
 created: '2013-09-20T19:28:35-07:00'
 ---
 

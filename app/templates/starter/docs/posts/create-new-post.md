@@ -5,7 +5,7 @@ snippet: Go-Static! makes it really simple to create new posts.
 author: { name: Colyn Brown, email: colyn.brown@gmail.com }
 path: /posts/create-new-post.html
 type: post
-tags: ['blog', 'post', 'create', 'go-static']
+tags: ['examples', 'post', 'create', 'go-static']
 created: '2013-09-20T19:28:35-07:00'
 ---
 
