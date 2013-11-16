@@ -1,0 +1,45 @@
+---
+layout: home
+title: Recent Posts
+path: /index.html
+type: page
+created: '2013-09-20T19:28:35-07:00'
+---
+
+<h2 class="content-subhead">Pinned Post</h2>
+
+{% for post in pinnedposts %}
+<section class="post">
+  <header class="post-header">
+    <h2 class="post-title"><a href="{{ post.get('path') }}">{{ post.get('title') }}</a></h2>
+  </header>
+  <p class="post-meta">
+    By <span class="post-author">{{ post.get('author')['name'] }}</span> under 
+    {% for tag in post.get('tags') %}
+      <a class="post-tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
+    {% endfor %}
+  </p>
+  <p class="post-description">
+    {{ post.get('snippet') }}
+  </p>
+</section>
+{% endfor %}
+
+<h2 class="content-subhead">Recent Posts</h2>
+
+{% for post in posts %}
+<section class="post">
+  <header class="post-header">
+    <h2 class="post-title"><a href="{{ post.get('path') }}">{{ post.get('title') }}</a></h2>
+  </header>
+  <p class="post-meta">
+    By <span class="post-author">{{ post.get('author')['name'] }}</span> under 
+    {% for tag in post.get('tags') %}
+      <a class="post-tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
+    {% endfor %}
+  </p>
+  <p class="post-description">
+    {{ post.get('snippet') }}
+  </p>
+</section>
+{% endfor %}

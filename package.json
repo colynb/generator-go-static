@@ -1,6 +1,6 @@
 {
   "name": "generator-go-static",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Go-Static! is a static site generator that employs the tools developers already know and love. Yeoman to scaffold out your project and Grunt to generate the output.",
   "keywords": [
     "yeoman-generator",
