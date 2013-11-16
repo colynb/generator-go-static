@@ -7,8 +7,8 @@ var moment = require('moment');
 var chalk = require('chalk');
 
 var PostGenerator = module.exports = function PostGenerator(args, options, config) {
-	this.on('end', function () {});
-	yeoman.generators.Base.apply(this, arguments);
+  this.on('end', function () {});
+  yeoman.generators.Base.apply(this, arguments);
 };
 
 util.inherits(PostGenerator, yeoman.generators.NamedBase);
