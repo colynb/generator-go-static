@@ -71,6 +71,11 @@ Documentation isn't completed as this is a work in progress, but there are a cou
 
 [Go-Static! Wiki](https://github.com/colynb/generator-go-static/wiki/_pages)
 
+### Changelog
+
+**V0.2.0:**
+Added tag query support; yeoman generator for creating tag pages; removed built-in support for HAML (thinking about refactoring for render method plugins instead)
+
 ### Contributing
 
 Go-Static! has just been born and still needs work to be awesome. If you'd like to help make it awesome, let me know!
