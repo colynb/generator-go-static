@@ -25,8 +25,6 @@ var Doc = Backbone.Model.extend({
 
 var DocCollection = QueryCollection.extend({
   model: Doc,
-  sortAttribute: "created-date",
-  sortDirection: -1,
   getPostsByTag : function(tag){
     return this.query(
       {tags: { $any: [tag]}},
