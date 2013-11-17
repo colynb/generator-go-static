@@ -6,7 +6,7 @@ type: page
 created: <%= props.created %>
 ---
 
-{% for post in collection.getPostsByTag(<%= props.tag %>) %}
+{% for post in collection.getPostsByTag('<%= props.title %>') %}
 <section class="post">
   <header class="post-header">
     <h2 class="post-title"><a href="{{ post.get('path') }}">{{ post.get('title') }}</a></h2>
